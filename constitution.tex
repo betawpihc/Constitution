@@ -1,0 +1,40 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{titlepic}
+\usepackage{graphicx}
+\usepackage[pdftex,bookmarks, bookmarksnumbered=true, 
+hypertexnames=false]{hyperref}
+\usepackage{bookmark}
+
+\title{%
+    \includegraphics[width=\textwidth]{btp_tone.jpg}\\[1cm]
+    Constitution and Bylaws
+}
+\author{Beta WPI Housing Corporation}
+\date{May 3, 2020}
+
+\begin{document}
+\input{revision}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+\stepcounter{page}
+\begin{center}
+	\small This document was compiled on \today, from Git revision \Revision.
+\end{center}
+\clearpage
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+
+\setcounter{chapter}{0}
+\renewcommand\chaptername{Item}
+\part{Bylaws}
+
+\part{Appendices}
+\appendix
+\input{appendix}
+
+\end{document}

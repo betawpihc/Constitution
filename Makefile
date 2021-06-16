@@ -1,3 +1,2 @@
-TARGET=constitution
+TARGET=bylaws
 include Makefile.include
-

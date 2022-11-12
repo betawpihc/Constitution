@@ -1,9 +1,9 @@
 name: Compile LaTeX
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   build_pdf:
     runs-on: ubuntu-latest

@@ -22,5 +22,5 @@ jobs:
         with:
           name: PDF
           path: |
-            lease.pdf
+            bylaws.pdf
             diff.pdf

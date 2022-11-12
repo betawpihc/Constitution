@@ -4,13 +4,23 @@ jobs:
   build_pdf:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: xu-cheng/texlive-action/full@v1
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Set up Git repository
+        uses: actions/checkout@v2
         with:
-          run: |
-            apk add make git
-            make
+          fetch-depth: 2
+      - uses: tawalaya/latex-diff-action@v1
+        with:
+          root_file: lease.tex
+        if: github.event_name != 'pull_request'
+      - uses: tawalaya/latex-diff-action@v1
+        with:
+          root_file: bylaws.tex
+          compile_diff: true
+        if: github.event_name == 'pull_request'
       - uses: actions/upload-artifact@v2
         with:
-          name: pdf
-          path: bylaws.pdf
+          name: PDF
+          path: |
+            lease.pdf
+            diff.pdf
